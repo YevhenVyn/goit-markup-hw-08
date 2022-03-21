@@ -1,0 +1,42 @@
+.socials {
+  @extend %list;
+  @include flexCenter(flex, center, null);
+}
+
+.socials__item:not(:last-child) {
+  margin-right: 10px;
+}
+
+%socials__link {
+  @include flexCenter(flex, center, center);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+    color: var(--titles-light);
+  }
+}
+
+.socials__link--theme--light {
+  @extend %socials__link;
+  background-color: var(--bgc-light);
+  color: var(--icon-primary);
+}
+
+.socials__link--theme--dark {
+  @extend %socials__link;
+  background-color: var(--bgc-footer-socials);
+  color: inherit;
+}
+
+.socials__icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}

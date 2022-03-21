@@ -1,0 +1,22 @@
+%logo {
+  @extend %link;
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  @include font(31px, 0.03em, 700, 26px);
+}
+
+.logo--color--perman {
+  color: var(--accent-color);
+}
+
+.logo__header {
+  @extend %logo;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-right: 93px;
+}
+
+.logo__footer {
+  @extend %logo;
+  margin-bottom: 20px;
+}

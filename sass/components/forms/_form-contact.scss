@@ -1,0 +1,136 @@
+.contact-form {
+  @include flexCenter(flex, null, center) flex-direction: column;
+
+  color: var(--contact-form-main-color);
+}
+.contact-form__title {
+  width: 100%;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  margin-top: 0;
+  @include font(30px, 0.03em, 700, 20px);
+
+  text-align: center;
+}
+.contact-form-list {
+  @extend %list;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.contact-form-list__item {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.contact-form__label {
+  @include font(14px, 0.01em, 400, 12px);
+  margin-bottom: 4px;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.contact-form__icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  @include animation(fill);
+
+  .contact-form__input:focus + & {
+    fill: var(--accent-color);
+  }
+}
+
+.contact-form__input {
+  padding-left: 42px;
+  color: var(--primary-color);
+  width: 100%;
+  height: 40px;
+  /* border: none; */
+  border-radius: 4px;
+  border: 1px solid var(--input-border-color);
+  font-size: 16px;
+  cursor: pointer;
+  @include animation(border-color);
+
+  &:focus {
+    border-color: var(--accent-color);
+    /* outline: none; */
+  }
+}
+
+.contact-form__textarea {
+  height: 120px;
+  resize: none;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border: 1px solid var(--input-border-color);
+  @include font(16px, 0.01em, 400);
+  @include animation(border-color);
+
+  &:focus {
+    /* outline: none; */
+    border-color: var(--accent-color);
+  }
+
+  &::placeholder {
+    color: var(--contact-form-sec-color);
+  }
+}
+
+.agreement {
+  position: relative;
+  @include font(14px, 0.03em, 400, 12px);
+  color: var(--secondary-color);
+  margin-bottom: 30px;
+  padding-left: 23px;
+}
+.agreement__icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 15px;
+
+  cursor: pointer;
+}
+.agreement__icon--checked {
+  @extend .agreement__icon;
+  fill: var(--bgc-light);
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.agreement__check:focus + .agreement__label .agreement__icon {
+  outline: 3px solid var(--accent-color);
+  @include animation(outline);
+}
+
+.agreement__check:checked + .agreement__label .agreement__icon {
+  opacity: 0;
+}
+
+.agreement__check:checked + .agreement__label .agreement__icon--checked {
+  opacity: 1;
+}
+
+.agreement__link {
+  color: var(--accent-color);
+  cursor: pointer;
+
+  &:focus {
+    /* outline: 2px dotted var(--secondary-color); */
+    @include animation(outline);
+  }
+}

@@ -1,0 +1,16 @@
+@mixin animation($trpr, $trdr: 250ms, $trtf: cubic-bezier(0.4, 0, 0.2, 1)) {
+  transition-property: $trpr;
+  transition-duration: $trdr;
+  transition-timing-function: $trtf;
+}
+@mixin flexCenter($disp, $jc, $ai) {
+  display: $disp;
+  justify-content: $jc;
+  align-items: $ai;
+}
+@mixin font($lh: 24px, $ls: 0.03em, $fw: 400, $fz: 14px) {
+  line-height: ($lh / $fz);
+  letter-spacing: $ls;
+  font-weight: $fw;
+  font-size: $fz;
+}

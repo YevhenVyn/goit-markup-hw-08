@@ -1,0 +1,52 @@
+body {
+  color: var(--primary-color);
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bgc-light);
+  font-size: 14px;
+  /* width: 1600px; */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section {
+  margin: 0 auto;
+  @media screen and (max-width: 320px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (max-width: 1199px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+}
+
+%list {
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+%link {
+  text-decoration: none;
+  color: inherit;
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+  @include animation(color);
+}

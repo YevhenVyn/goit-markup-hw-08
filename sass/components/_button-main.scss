@@ -1,0 +1,90 @@
+%button {
+  border: 0;
+  border-radius: 4px;
+
+  align-items: center;
+
+  background-color: var(--accent-color);
+  color: var(--titles-light);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+  @include font(30px, 0.06em, 700, 16px);
+
+  cursor: pointer;
+
+  @include animation(background-color);
+
+  &:hover,
+  &:focus {
+    background-color: var(--bgc-btn-second);
+  }
+}
+
+.hero-button {
+  @extend %button;
+  display: inline-block;
+  min-width: 200px;
+  /* margin: 0px auto; ОСКІЛЬКИ ЦЕ ІНЛАЙН-БЛОК ЕЛЕМЕНТ ТО ЦЕНТРУВАННЯ  НАСЛІДУЄТЬСЯ ВІД БАТЬКІВСЬКОГО 'HERO'*/
+  padding: 10px 32px;
+  letter-spacing: 0.06em;
+  box-shadow: none;
+}
+
+.submit-btn {
+  @extend %button;
+  @include flexCenter(flex, center, null);
+  margin: 0 auto;
+  width: 200px;
+  height: 50px;
+  padding: 0;
+}
+
+.submit-btn__text {
+  margin: 0;
+  margin-right: 10px;
+  /* padding-left: 28px; */
+}
+
+.submit-btn__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-menu-button--close {
+  display: none;
+}
+
+.mobile-menu-button {
+  z-index: 10;
+  @include flexCenter(flex, center, center);
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  &.is-open {
+    & .mobile-menu-button--close {
+      @include flexCenter(flex, center, center);
+    }
+    & .mobile-menu-button--open {
+      display: none;
+    }
+  }
+}
+
+.mobile-menu-button:hover .mobile-menu-button--open,
+.mobile-menu-button:focus .mobile-menu-button--open,
+.mobile-menu-button:hover .mobile-menu-button--close,
+.mobile-menu-button:focus .mobile-menu-button--close {
+  fill: var(--accent-color);
+}
+
+.mobile-menu-button--open,
+.mobile-menu-button--close {
+  @include animation(fill);
+}

@@ -1,0 +1,217 @@
+.header {
+  position: fixed;
+  z-index: 7;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #ececec;
+  /* padding-top: 24px; */
+  /* padding-bottom: 25px; */
+  background-color: var(--bgc-light);
+  @include font(16px, 0.02em, 500);
+}
+
+.header-container {
+  position: relative;
+  @include flexCenter(flex, space-between, center);
+  @media screen and (min-width: 768px) {
+    @include flexCenter(flex, null, center);
+  }
+}
+.header-container__wrap {
+  background-color: var(--bgc-light);
+  flex-basis: 100%;
+  display: none;
+  @media screen and (max-width: 767px) {
+    &.is-open {
+      @include flexCenter(flex, space-between, center);
+      // padding: 48px 40px;
+
+      padding-top: 48px;
+      padding-left: 40px;
+      padding-right: 40px;
+
+      position: absolute;
+      z-index: 8;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      max-width: 480px;
+      max-height: 796px;
+
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: scroll;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    @include flexCenter(flex, space-between, center);
+  }
+}
+
+.site-nav,
+.nav-list {
+  @media screen and (min-width: 768px) {
+    @include flexCenter(flex, null, center);
+  }
+}
+
+.site-nav {
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
+.nav-list {
+  @extend %list;
+  @media screen and (max-width: 767px) {
+    @include font(47px, 0.02em, 500, 40px);
+  }
+}
+
+.nav-list__item {
+  margin: 0;
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+}
+
+.nav-list__link {
+  @extend %link;
+  display: block;
+
+  color: var(--primary-color);
+
+  @media screen and (min-width: 768px) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.link--current {
+  color: var(--accent-color);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+}
+
+.header-contacts-wrap {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.header-contacts {
+  @extend %list;
+  color: var(--secondary-color);
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+    height: 100%;
+  }
+  @media screen and (min-width: 1200px) {
+    display: flex;
+  }
+}
+
+.header-contacts-mobile {
+  @extend %list;
+  margin-bottom: 64px;
+  & .header-contacts__link--tel {
+    color: var(--accent-color);
+    @include font(40px, 0.02em, 500, 34px);
+  }
+  & .header-contacts__link--mail {
+    @include font(28px, 0.02em, 500, 24px);
+    color: var(--secondary-color);
+  }
+  & .header-contacts__item {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.header-contacts__item {
+  @media screen and (min-width: 1200px) {
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+}
+
+.header-contacts__link--tel,
+.header-contacts__link--mail {
+  @extend %link;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    @media screen and (min-width: 768px) {
+      padding: 5px 0;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.header-contacts__icon {
+  fill: currentColor;
+  margin-right: 10px;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.header-socials {
+  @extend %list;
+  @include flexCenter(flex, flex-start, center);
+  color: var(--accent-color);
+  margin-bottom: 48px;
+  @include font(22px, 0.02em, 500, 18px);
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.header-socials__item {
+  @include flexCenter(flex, center, center);
+  &:not(:last-child) {
+    margin-right: 10px;
+    &::after {
+      content: '';
+      display: block;
+      height: 22px;
+      // height має дорівнювати line-height - ЯК ЦЕ ЗРОБИТИ?
+      width: 1px;
+      background-color: var(--header-socials-line-color);
+      margin-left: 10px;
+    }
+  }
+}
+
+.header-socials__link {
+  @extend %link;
+}

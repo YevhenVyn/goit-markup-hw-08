@@ -1,0 +1,52 @@
+.form-mailing {
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    width: 450px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 570px;
+  }
+}
+
+.mailing {
+  @media screen and (min-width: 1200px) {
+    // text-align: center;
+    @include flexCenter(flex, space-between, null);
+  }
+}
+
+.mailing__field {
+  position: relative;
+  margin-bottom: 20px;
+
+  height: 50px;
+  color: var(--titles-light-transparency);
+  @include font(20px, 0.03em, 400, 16px);
+  @media screen and (min-width: 1200px) {
+    width: 358px;
+  }
+}
+
+.mailing__input {
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--input-dark);
+  padding: 15px 16px;
+  color: inherit;
+}
+
+.mailing__label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  .mailing__input:focus + &,
+  .mailing__input:not(:placeholder-shown) + & {
+    opacity: 0;
+  }
+}
