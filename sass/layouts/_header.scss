@@ -14,54 +14,64 @@
 .header-container {
   position: relative;
   @include flexCenter(flex, space-between, center);
-  @media screen and (min-width: 768px) {
-    @include flexCenter(flex, null, center);
+  @media screen and (min-width: 1200px) {
+    @include flexCenter(flex, flex-start, center);
+  }
+  & .site-nav {
+    @media screen and (max-width: 767.5px) {
+      display: none;
+    }
   }
 }
 .header-container__wrap {
+  position: absolute;
+  z-index: 8;
+  @include flexCenter(flex, space-between, center);
+  // flex-basis: 100%;
   background-color: var(--bgc-light);
-  flex-basis: 100%;
-  display: none;
-  @media screen and (max-width: 767px) {
-    &.is-open {
-      @include flexCenter(flex, space-between, center);
-      // padding: 48px 40px;
 
-      padding-top: 48px;
-      padding-left: 40px;
-      padding-right: 40px;
+  // display: none;
+  opacity: 1;
+  pointer-events: all;
+  @include animation(opacity);
 
-      position: absolute;
-      z-index: 8;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      max-width: 480px;
-      max-height: 796px;
+  padding: 48px 40px;
 
-      flex-direction: column;
-      align-items: flex-start;
-      overflow-y: scroll;
-    }
-  }
+  // padding-top: 48px;
+  // padding-left: 40px;
+  // padding-right: 40px;
+
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  // max-width: 480px;
+  // max-height: 796px;
+
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-y: scroll;
   @media screen and (min-width: 768px) {
-    @include flexCenter(flex, space-between, center);
+    display: none;
+  }
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 
 .site-nav,
 .nav-list {
   @media screen and (min-width: 768px) {
-    @include flexCenter(flex, null, center);
+    @include flexCenter(flex, space-between, center);
   }
 }
 
-.site-nav {
-  @media screen and (max-width: 767px) {
-    width: 100%;
-  }
-}
+// .site-nav {
+//   @media screen and (min-width: 768px) {
+//     width: 100%;
+//   }
+// }
 .nav-list {
   @extend %list;
   @media screen and (max-width: 767px) {
@@ -132,6 +142,7 @@
   }
   @media screen and (min-width: 1200px) {
     display: flex;
+    margin-left: auto;
   }
 }
 
@@ -145,6 +156,10 @@
   & .header-contacts__link--mail {
     @include font(28px, 0.02em, 500, 24px);
     color: var(--secondary-color);
+    &:hover,
+    &:focus {
+      color: var(--accent-color);
+    }
   }
   & .header-contacts__item {
     &:not(:last-child) {
@@ -161,19 +176,6 @@
   }
 }
 
-.header-contacts__link--tel,
-.header-contacts__link--mail {
-  @extend %link;
-  @media screen and (min-width: 768px) {
-    display: flex;
-    align-items: center;
-  }
-  @media screen and (min-width: 1200px) {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-}
-
 .header-contacts__link--tel {
   @media screen and (min-width: 768px) {
     padding-top: 5px;
@@ -184,6 +186,19 @@
   @media screen and (min-width: 768px) {
     padding-top: 19px;
     padding-bottom: 5px;
+  }
+}
+
+.header-contacts__link--tel,
+.header-contacts__link--mail {
+  @extend %link;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 }
 
@@ -200,27 +215,29 @@
   @include flexCenter(flex, flex-start, center);
   flex-wrap: wrap;
   color: var(--accent-color);
-  margin-bottom: 48px;
+  // margin-bottom: 48px;
   @include font(22px, 0.02em, 500, 18px);
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
+  // @media screen and (min-width: 768px) {
+  //   display: none;
+  // }
 }
 
 .header-socials__item {
   @include flexCenter(flex, center, center);
-
+  padding-right: 10px;
   &:not(:last-child) {
     margin-right: 10px;
-    &::after {
-      content: '';
-      display: block;
-      height: 22px;
-      // height має дорівнювати line-height - ЯК ЦЕ ЗРОБИТИ?
-      width: 1px;
-      background-color: var(--header-socials-line-color);
-      margin-left: 10px;
-    }
+    border-right: 1px solid var(--header-socials-line-color);
+
+    // &::after {
+    //   content: '';
+    //   display: block;
+    //   height: 22px;
+    //   // height має дорівнювати line-height - ЯК ЦЕ ЗРОБИТИ?
+    //   width: 1px;
+    //   background-color: var(--header-socials-line-color);
+    //   margin-left: 10px;
+    // }
   }
 }
 

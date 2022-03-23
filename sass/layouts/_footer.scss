@@ -17,15 +17,16 @@
 .footer-prime-wrap {
   margin-bottom: 60px;
   @media screen and (min-width: 768px) {
-    @include flexCenter(flex, null, baseline);
+    @include flexCenter(flex, space-around, baseline);
   }
   @media screen and (min-width: 1200px) {
     margin: 0;
+    justify-content: start;
   }
 }
 
 .footer-first-side {
-  margin: 0 auto;
+  // margin: 0 auto;
 }
 
 .footer-contacts {
@@ -59,8 +60,8 @@
 .footer-socials-wrap {
   // width: 206px;
   margin-top: 60px;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
   @media screen and (min-width: 768px) {
     margin-top: 0;
   }
