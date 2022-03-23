@@ -1,14 +1,11 @@
-.portfolio-card {
-  height: 100%;
-}
-
 .portfolio-card__link {
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   text-decoration: none;
-  border-left: 1px solid var(--portfolio-items-border);
-  border-right: 1px solid var(--portfolio-items-border);
-  border-bottom: 1px solid var(--portfolio-items-border);
+  // border-left: 1px solid var(--portfolio-items-border);
+  // border-right: 1px solid var(--portfolio-items-border);
+  // border-bottom: 1px solid var(--portfolio-items-border);
 
   @include animation(box-shadow);
   // transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -28,11 +25,13 @@
 
 .portfolio-card__overlay {
   position: absolute;
-  display: block;
+  // display: block;
+  @include flexCenter(flex, center, center);
   width: 100%;
   height: 100%;
   background-color: var(--overlay-blue);
   @include animation(transform);
+  overflow-y: scroll;
 
   .portfolio-card__link:hover &,
   .portfolio-card__link:focus & {
@@ -40,7 +39,10 @@
   }
 }
 .portfolio-card__text {
-  padding: 63px 24px;
+  margin: 0;
+  // padding: 63px 24px;
+  padding-left: 24px;
+  padding-right: 24px;
   @include font(28px, 0.03em, 400, 18px);
 
   color: var(--titles-light);
@@ -48,9 +50,12 @@
 
 .cards-text-wrap {
   padding: 20px 24px;
-  // border-left: 1px solid var(--portfolio-items-border);
-  // border-right: 1px solid var(--portfolio-items-border);
-  // border-bottom: 1px solid var(--portfolio-items-border);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border-left: 1px solid var(--portfolio-items-border);
+  border-right: 1px solid var(--portfolio-items-border);
+  border-bottom: 1px solid var(--portfolio-items-border);
   /* outline: 1px solid orange; */
 }
 

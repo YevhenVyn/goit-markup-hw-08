@@ -167,13 +167,23 @@
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    @media screen and (min-width: 768px) {
-      padding: 5px 0;
-    }
   }
   @media screen and (min-width: 1200px) {
     padding-top: 32px;
     padding-bottom: 32px;
+  }
+}
+
+.header-contacts__link--tel {
+  @media screen and (min-width: 768px) {
+    padding-top: 5px;
+    padding-bottom: 19px;
+  }
+}
+.header-contacts__link--mail {
+  @media screen and (min-width: 768px) {
+    padding-top: 19px;
+    padding-bottom: 5px;
   }
 }
 
@@ -188,6 +198,7 @@
 .header-socials {
   @extend %list;
   @include flexCenter(flex, flex-start, center);
+  flex-wrap: wrap;
   color: var(--accent-color);
   margin-bottom: 48px;
   @include font(22px, 0.02em, 500, 18px);
@@ -198,6 +209,7 @@
 
 .header-socials__item {
   @include flexCenter(flex, center, center);
+
   &:not(:last-child) {
     margin-right: 10px;
     &::after {
