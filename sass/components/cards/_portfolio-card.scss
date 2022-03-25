@@ -26,7 +26,7 @@
 .portfolio-card__overlay {
   position: absolute;
   // display: block;
-  @include flexCenter(flex, center, center);
+  @include flexCenter(flex, center, null);
   width: 100%;
   height: 100%;
   background-color: var(--overlay-blue);
@@ -39,7 +39,7 @@
   }
 }
 .portfolio-card__text {
-  margin: 0;
+  margin: auto 0;
   // padding: 63px 24px;
   padding-left: 24px;
   padding-right: 24px;
